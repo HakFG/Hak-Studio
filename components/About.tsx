@@ -11,6 +11,19 @@ const SOFTWARES = [
   { label: "Unity", image: "/images/unity.png", color: "#ff6b5e" },
 ];
 
+const SKILLS = [
+  "Pixel Art",
+  "Animações",
+  "Programação",
+  "Game Design",
+  "Level Design",
+  "Prototipagem",
+  "Narrativa para jogos",
+  "Design de personagens",
+  "Criação de cenários",
+  "Resolução de problemas",
+];
+
 function AssetImage({ src, alt, color, label }: { src: string; alt: string; color: string; label: string }) {
   const [failed, setFailed] = useState(false);
 
@@ -62,7 +75,9 @@ export default function About() {
             </div>
             <div>
               <h3 className="font-press text-lg text-[#ffb547]">Habilidades</h3>
-              <ul className="mt-5 space-y-3 text-base font-bold text-[#f4f0ff]" role="list"><li>Pixel Art</li><li>Animações</li><li>Programação</li></ul>
+              <ul className="mt-5 grid grid-cols-1 gap-x-5 gap-y-3 text-sm font-bold text-[#f4f0ff] sm:grid-cols-2" role="list">
+                {SKILLS.map((skill) => <li key={skill} className="flex items-center gap-2"><span aria-hidden className="size-1.5 shrink-0 rounded-full bg-[#62e3c8]" />{skill}</li>)}
+              </ul>
             </div>
           </div>
 
