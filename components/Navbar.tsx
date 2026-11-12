@@ -3,16 +3,19 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const LINKS = [
   { label: "Bem-Vindo", id: "bem-vindo" },
   { label: "Projetos", id: "projetos" },
+  { label: "Blog", id: "blog" },
   { label: "Games Jam", id: "games-jam" },
   { label: "Sobre Mim", id: "sobre-mim" },
   { label: "Contatos", id: "contatos" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [active, setActive] = useState("bem-vindo");
   const [hover, setHover] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
@@ -48,6 +51,7 @@ export default function Navbar() {
   }, []);
 
   const shown = hover ?? active;
+  const hrefFor = (id: string) => pathname === "/" ? `#${id}` : `/#${id}`;
 
   return (
     <header
@@ -58,7 +62,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-4 sm:px-8 md:h-[72px]">
         {/* Logo */}
         <a
-          href="#bem-vindo"
+          href={hrefFor("bem-vindo")}
           className="font-press flex items-center gap-1.5 text-xl text-[#f4f0ff] sm:text-2xl"
           aria-label="Hak, voltar ao início"
         >
@@ -72,7 +76,7 @@ export default function Navbar() {
             {LINKS.map((l) => (
               <li key={l.id}>
                 <a
-                  href={`#${l.id}`}
+                  href={hrefFor(l.id)}
                   onMouseEnter={() => setHover(l.id)}
                   onMouseLeave={() => setHover(null)}
                   onFocus={() => setHover(l.id)}
@@ -136,7 +140,7 @@ export default function Navbar() {
                   transition={{ delay: 0.05 * i }}
                 >
                   <a
-                    href={`#${l.id}`}
+                    href={hrefFor(l.id)}
                     onClick={() => setOpen(false)}
                     className={`font-grotesk block border-l-4 py-3 pl-4 text-lg font-semibold ${
                       active === l.id

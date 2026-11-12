@@ -47,6 +47,45 @@ body {
   font-family: var(--font-grotesk), system-ui, sans-serif;
 }
 
+.article-content {
+  color: rgba(244, 240, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  color: var(--paper);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.article-content h1 { font-size: 2rem; margin: 3.5rem 0 1rem; }
+.article-content h2 { font-size: 1.5rem; margin: 3rem 0 1rem; }
+.article-content h3 { font-size: 1.2rem; margin: 2rem 0 0.75rem; }
+.article-content p { margin: 1.5rem 0; }
+.article-content > p:first-of-type::first-letter {
+  color: var(--sun);
+  float: left;
+  font-family: var(--font-press), monospace;
+  font-size: 3.2em;
+  line-height: 0.9;
+  margin: 0.12em 0.18em 0 0;
+}
+.article-content ul,
+.article-content ol { margin: 1.75rem 0; padding-left: 1.4rem; }
+.article-content li { margin: 0.55rem 0; }
+.article-content li::marker { color: var(--mint); }
+.article-content a { color: var(--sun); text-decoration: underline; text-underline-offset: 0.25em; }
+.article-content strong { color: var(--paper); }
+.article-content blockquote { border-left: 3px solid var(--mint); margin: 2.5rem 0; padding: 1rem 1.25rem; color: var(--paper); background: rgba(98, 227, 200, 0.06); }
+.article-content hr { border: 0; border-top: 1px dashed rgba(244, 240, 255, 0.3); margin: 3rem 0; }
+.article-content code { border-radius: 0.35rem; background: rgba(0, 0, 0, 0.3); color: var(--mint); padding: 0.12rem 0.35rem; }
+.article-content pre { margin: 2rem 0; overflow-x: auto; border: 1px solid rgba(244, 240, 255, 0.15); border-radius: 0.85rem; background: rgba(0, 0, 0, 0.3); padding: 1.25rem; }
+.article-content pre code { background: transparent; padding: 0; }
+
 /* Cursor piscando estilo terminal / caixa de diálogo de RPG */
 @keyframes blink {
   0%, 49% { opacity: 1; }
